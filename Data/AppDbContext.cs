@@ -11,10 +11,11 @@ namespace practice_web_apis.Data
 
         }
         public DbSet<Stock> Stocks { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Stock>().HasData(
+            /*modelBuilder.Entity<Stock>().HasData(
                new Stock
                {
                    Id = 1,
@@ -75,7 +76,7 @@ namespace practice_web_apis.Data
         Industry = "Entertainment",
         MarketCap = 250000000000 // 250 billion
     }
-               );
+               );*/
         }
     }
 }

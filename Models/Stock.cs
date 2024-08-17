@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.CompilerServices;
+using practice_web_apis.Dtos;
 
 namespace practice_web_apis.Models
 {
@@ -15,7 +17,8 @@ namespace practice_web_apis.Models
             public string Industry { get; set; } = string.Empty;
             public long MarketCap { get; set; }
 
-            //public List<Comment> Comments { get; set; } = new List<Comment>();
+            public List<Comment> Comments { get; set; } = new List<Comment>();
+
             //public List<Portfolio> Portfolios { get; set; } = new List<Portfolio>();
 
     }
