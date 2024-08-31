@@ -8,20 +8,48 @@ namespace practice_web_apis.Repository.CommentRepo
 {
     public class CommentRepository : ICommentRepository
     {
-        private readonly AppDbContext db;
-        public CommentRepository(AppDbContext _db)
+        private readonly AppDbContext _db;
+        public CommentRepository(AppDbContext db)
         {
-            db = _db;
+            _db = db;
+        }
+
+        public async Task<bool> CheckExist(int CommentId)
+        {
+            return await _db.Comments.AnyAsync(comm => comm.Id == CommentId);
+        }
+
+        public async Task<Comment> CreateAsync(Comment CommentModel)
+        {
+           var comment = await _db.Comments.AddAsync(CommentModel);
+            await _db.SaveChangesAsync();
+            return comment.Entity;
+        }
+
+        public async Task DeleteCommentAsync(Comment existingComment)
+        {
+            _db.Comments.Remove(existingComment);
+            await _db.SaveChangesAsync();
+        }
+
+        public async Task<Comment?> FindCommentAsync(int CommentId)
+        {
+            return await _db.Comments.FindAsync(CommentId);
         }
 
         public async Task<List<Comment>> GetAllAsync()
         {
-           return await db.Comments.ToListAsync();
+           return await _db.Comments.ToListAsync();
         }
 
         public async Task<Comment?> GetByIdAsync(int id)
         {
-            return await db.Comments.FirstOrDefaultAsync(c => c.Id == id);
+            return await _db.Comments.FirstOrDefaultAsync(c => c.Id == id);
+        }
+
+        public async Task SaveDbChangesAsync()
+        {
+            await _db.SaveChangesAsync();
         }
     }
 }

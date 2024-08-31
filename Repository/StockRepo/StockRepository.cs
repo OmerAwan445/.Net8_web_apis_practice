@@ -11,6 +11,12 @@ namespace practice_web_apis.Repository.StockRepo
         {
             _db = db;
         }
+
+        public async Task<bool> CheckExist(int id)
+        {
+            return await _db.Stocks.AnyAsync(s => s.Id == id);
+        }
+
         public async Task<List<Stock>> GetAllAsync()
         {
            return await _db.Stocks.Include(s => s.Comments).ToListAsync();

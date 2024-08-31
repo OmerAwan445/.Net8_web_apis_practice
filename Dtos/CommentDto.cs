@@ -9,4 +9,10 @@ namespace practice_web_apis.Dtos
         public DateTime CreatedOn { get; set; } = DateTime.Now;
         public int? StockId { get; set; }
     }
+
+    public class CreateCommentDto
+    {
+        public string Title { get; set; } = string.Empty;
+        public string Content { get; set; } = string.Empty;
+    }
 }
