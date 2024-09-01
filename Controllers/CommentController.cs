@@ -10,9 +10,9 @@ namespace practice_web_apis.Controllers
     [Route("/[controller]")]
     public class CommentController : ControllerBase
     {
-        private readonly ICommentRepository commentRepository;
-        private readonly IStockRepository _stockRepo;
-        public CommentController(ICommentRepository commentRepo, IStockRepository stockRepo)
+        private readonly ICommentRepo commentRepository;
+        private readonly IStockRepo _stockRepo;
+        public CommentController(ICommentRepo commentRepo, IStockRepo stockRepo)
         {
             commentRepository = commentRepo;
             _stockRepo = stockRepo;

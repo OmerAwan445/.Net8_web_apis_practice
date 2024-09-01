@@ -13,9 +13,9 @@ namespace practice_web_apis.Controllers
     public class StockController : ControllerBase
     {
         private readonly AppDbContext _db;
-        private readonly IStockRepository stockRepo;
+        private readonly IStockRepo stockRepo;
 
-        public StockController(AppDbContext db, IStockRepository _stockRepo)
+        public StockController(AppDbContext db, IStockRepo _stockRepo)
         {
             _db = db;
             stockRepo = _stockRepo;

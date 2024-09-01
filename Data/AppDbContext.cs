@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using practice_web_apis.Models;
 
 namespace practice_web_apis.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
@@ -13,9 +14,9 @@ namespace practice_web_apis.Data
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<Comment> Comments { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+/*        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            /*modelBuilder.Entity<Stock>().HasData(
+            modelBuilder.Entity<Stock>().HasData(
                new Stock
                {
                    Id = 1,
@@ -76,7 +77,7 @@ namespace practice_web_apis.Data
         Industry = "Entertainment",
         MarketCap = 250000000000 // 250 billion
     }
-               );*/
-        }
+               );
+        }*/
     }
 }

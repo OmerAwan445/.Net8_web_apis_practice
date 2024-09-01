@@ -1,18 +1,6 @@
 
 namespace practice_web_apis.Dtos
 {
-    public class CommentDto
-    {
-        public int Id { get; set; }
-        public string Title { get; set; } = string.Empty;
-        public string Content { get; set; } = string.Empty;
-        public DateTime CreatedOn { get; set; } = DateTime.Now;
-        public int? StockId { get; set; }
-    }
-
-    public class CreateCommentDto
-    {
-        public string Title { get; set; } = string.Empty;
-        public string Content { get; set; } = string.Empty;
-    }
+    public record CommentDto(int Id, string Title, string Content, DateTime CreatedOn = default, int? StockId = null);
+    public record CreateCommentDto(string Title, string Content);
 }

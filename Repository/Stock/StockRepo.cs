@@ -4,10 +4,10 @@ using practice_web_apis.Models;
 
 namespace practice_web_apis.Repository.StockRepo
 {
-    public class StockRepository : IStockRepository
+    public class StockRepo : IStockRepo
     {
         private readonly AppDbContext _db;
-        public StockRepository(AppDbContext db)
+        public StockRepo(AppDbContext db)
         {
             _db = db;
         }

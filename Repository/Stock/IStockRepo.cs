@@ -2,7 +2,7 @@
 
 namespace practice_web_apis.Repository.StockRepo
 {
-    public interface IStockRepository
+    public interface IStockRepo
     {
         public Task<List<Stock>> GetAllAsync();
         public Task<Stock?> GetByIdAsync(int id);

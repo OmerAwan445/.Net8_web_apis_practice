@@ -6,10 +6,10 @@ using practice_web_apis.Repository.StockRepo;
 
 namespace practice_web_apis.Repository.CommentRepo
 {
-    public class CommentRepository : ICommentRepository
+    public class CommentRepo : ICommentRepo
     {
         private readonly AppDbContext _db;
-        public CommentRepository(AppDbContext db)
+        public CommentRepo(AppDbContext db)
         {
             _db = db;
         }
